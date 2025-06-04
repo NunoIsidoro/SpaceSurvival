@@ -17,6 +17,7 @@ final class GameScene: SKScene {
     private var heartNodes: [SKSpriteNode] = []
     private var timeLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
+    private var gameOverLabel: SKLabelNode?
     
     // MARK: - Estado do jogo
     private var lives = 3 {
@@ -50,17 +51,21 @@ final class GameScene: SKScene {
     
     // MARK: - Setup
     override func didMove(to view: SKView) {
-        // Define (0,0) como centro da cena
-        anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        setupScene()
+        startGame()
+    }
+    
+    private func setupScene() {
+        anchorPoint = CGPoint(x: 0.5, y: 0.5) // (0,0) no centro
         
-        // 1) Fundo
+        // Fundo
         let bg = SKSpriteNode(imageNamed: "background")
         bg.zPosition = -1
         bg.position  = .zero
         bg.size      = size
         addChild(bg)
         
-        // 2) Jogador
+        // Jogador
         let texPlayer = SKTexture(imageNamed: "spaceship_green")
         player = SKSpriteNode(texture: texPlayer)
         rescale(node: player, desiredWidthRatio: 0.12)
@@ -73,7 +78,7 @@ final class GameScene: SKScene {
         
         physicsWorld.contactDelegate = self
         
-        // 3) Câmera + HUD
+        // Câmera + HUD
         let cam = SKCameraNode()
         camera = cam
         addChild(cam)
@@ -95,7 +100,7 @@ final class GameScene: SKScene {
         timeLabel = SKLabelNode(fontNamed: "Arial-BoldMT")
         timeLabel.fontSize  = 22
         timeLabel.fontColor = .white
-        timeLabel.text      = "Tempo: 0 s"
+        timeLabel.text      = " 0 s"
         timeLabel.position  = CGPoint(x: 0, y: size.height/2 - hudYOffset)
         timeLabel.zPosition = 5
         cam.addChild(timeLabel)
@@ -108,15 +113,37 @@ final class GameScene: SKScene {
         scoreLabel.position  = CGPoint(x: size.width/2 - 100, y: size.height/2 - hudYOffset)
         scoreLabel.zPosition = 5
         cam.addChild(scoreLabel)
+    }
+    
+    private func startGame() {
+        // Reinicia estado
+        lives           = 3
+        score           = 0
+        spawnInterval   = 1.0
+        startTime       = CACurrentMediaTime()
+        lastUpdate      = startTime
+        lastSpawn       = startTime
+        lastSecondCount = startTime
+        lastBulletSpawn = startTime
         
-        // 4) Marca tempo inicial
-        startTime        = CACurrentMediaTime()
-        lastUpdate       = startTime
-        lastSpawn        = startTime
-        lastSecondCount  = startTime
-        lastBulletSpawn  = startTime
+        // Remove gameOverLabel, se existir
+        gameOverLabel?.removeFromParent()
+        gameOverLabel = nil
         
+        // Remove todos os inimigos, balas e pickups
+        for e in enemies { e.removeFromParent() }
+        for b in bullets { b.removeFromParent() }
+        for p in pickups { p.removeFromParent() }
+        enemies.removeAll()
+        bullets.removeAll()
+        pickups.removeAll()
+        
+        // Atualiza HUD
         updateHearts()
+        timeLabel.text = " 0 s"
+        scoreLabel.text = " 0"
+        
+        isPaused = false
     }
     
     // MARK: - Spawning
@@ -169,7 +196,7 @@ final class GameScene: SKScene {
         enemy.physicsBody?.affectedByGravity = false
         enemy.physicsBody?.categoryBitMask = 2
         enemy.physicsBody?.contactTestBitMask = 1 | 4
-        enemy.physicsBody?.collisionBitMask = 0
+        enemy.physicsBody?.collisionBitMask = 0 // não empurra outros
         
         addChild(enemy)
         enemies.append(enemy)
@@ -182,7 +209,7 @@ final class GameScene: SKScene {
         let halfW = size.width / 2
         let xPos  = CGFloat.random(in: -halfW ... halfW)
         pickup.position = CGPoint(x: xPos, y: size.height/2 + pickup.size.height)
-        pickup.zRotation = .pi
+        // NÃO gira: zRotation removido
         
         pickup.physicsBody = SKPhysicsBody(rectangleOf: pickup.size)
         pickup.physicsBody?.isDynamic = true
@@ -219,6 +246,7 @@ final class GameScene: SKScene {
     
     // MARK: - Update loop
     override func update(_ currentTime: TimeInterval) {
+        if isPaused { return }
         let dt = currentTime - lastUpdate
         lastUpdate = currentTime
         
@@ -228,7 +256,7 @@ final class GameScene: SKScene {
             lastSecondCount += 1.0
             score += 1
         }
-        timeLabel.text = "\(Int(elapsed)) s"
+        timeLabel.text = " \(Int(elapsed)) s"
         
         // 2) Spawn de inimigos/pickups
         if currentTime - lastSpawn > spawnInterval {
@@ -301,7 +329,12 @@ final class GameScene: SKScene {
         player.run(SKAction.moveTo(x: targetX, duration: duration))
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchesMoved(touches, with: event)
+        if isPaused, gameOverLabel != nil {
+            // Se estiver em Game Over, reinicia ao tocar
+            startGame()
+        } else {
+            touchesMoved(touches, with: event)
+        }
     }
     
     // MARK: - Utilitário de escala
@@ -319,14 +352,15 @@ extension GameScene: SKPhysicsContactDelegate {
         let bMask = contact.bodyB.categoryBitMask
         let combined = aMask | bMask
         
-        // Player (1) × Enemy (2)
+        // 1 = player, 2 = enemy, 4 = bullet, 8 = pickup
         if combined == 3 {
+            // Player (1) × Enemy (2)
             if let enemyNode = (aMask == 2 ? contact.bodyA.node : contact.bodyB.node) as? SKSpriteNode {
                 handleEnemyHit(enemyNode)
             }
         }
-        // Bullet (4) × Enemy (2)
         else if combined == 6 {
+            // Bullet (4) × Enemy (2)
             if
                 let enemyNode  = (aMask == 2 ? contact.bodyA.node : contact.bodyB.node) as? SKSpriteNode,
                 let bulletNode = (aMask == 4 ? contact.bodyA.node : contact.bodyB.node) as? SKSpriteNode
@@ -334,8 +368,8 @@ extension GameScene: SKPhysicsContactDelegate {
                 handleBulletHit(enemyNode, bulletNode)
             }
         }
-        // Player (1) × Pickup (8)
         else if combined == 9 {
+            // Player (1) × Pickup (8)
             if let pickupNode = (aMask == 8 ? contact.bodyA.node : contact.bodyB.node) as? SKSpriteNode {
                 handlePickup(pickupNode)
             }
@@ -357,7 +391,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         lives -= 1
         if lives <= 0 {
-            gameOver()
+            showGameOver()
         }
     }
     
@@ -389,7 +423,7 @@ extension GameScene: SKPhysicsContactDelegate {
         lives += 1
     }
     
-    private func gameOver() {
+    private func showGameOver() {
         isPaused = true
         let lbl = SKLabelNode(text: "GAME OVER")
         lbl.fontName = "Arial-BoldMT"
@@ -398,6 +432,7 @@ extension GameScene: SKPhysicsContactDelegate {
         lbl.zPosition = 10
         lbl.position = .zero
         camera?.addChild(lbl)
+        gameOverLabel = lbl
     }
 }
 
@@ -411,11 +446,13 @@ private extension Comparable {
 // MARK: - Atualização de corações (vidas)
 private extension GameScene {
     func updateHearts() {
+        // Remove corações antigos
         for heart in heartNodes {
             heart.removeFromParent()
         }
         heartNodes.removeAll()
         
+        // Desenha novo conjunto conforme lives
         for i in 0..<lives {
             let heart = SKSpriteNode(imageNamed: "heart")
             rescale(node: heart, desiredWidthRatio: 0.06)
