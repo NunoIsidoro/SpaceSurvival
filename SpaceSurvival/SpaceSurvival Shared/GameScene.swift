@@ -11,6 +11,7 @@ final class GameScene: SKScene {
     private var player: SKSpriteNode!
     private var enemies: [SKSpriteNode] = []
     private var bullets: [SKSpriteNode] = []
+    private var pickups: [SKSpriteNode] = []
     
     // MARK: - HUD
     private var heartNodes: [SKSpriteNode] = []
@@ -19,32 +20,37 @@ final class GameScene: SKScene {
     
     // MARK: - Estado do jogo
     private var lives = 3 {
-        didSet { updateHearts() }
+        didSet {
+            lives = min(max(lives, 0), 3)
+            updateHearts()
+        }
     }
     private var score = 0 {
-        didSet { scoreLabel.text = "Pontos: \(score)" }
+        didSet {
+            scoreLabel.text = " \(score)"
+        }
     }
     private var startTime: TimeInterval = 0
     
     // MARK: - Constantes
-    private let playerSpeed: CGFloat     = 400
-    private let enemySpeed: CGFloat      = 150
-    private var spawnInterval: TimeInterval = 1.0
-    private let spawnDecrease: TimeInterval = 0.02
-    private let spawnMin: TimeInterval      = 0.35
+    private let playerSpeed: CGFloat           = 400
+    private let bulletSpeed: CGFloat           = 300
+    private let bulletInterval: TimeInterval   = 0.5
     
-    private let bulletInterval: TimeInterval = 0.5
-    private let bulletSpeed: CGFloat         = 300
+    private let baseEnemySpeed: CGFloat        = 150
+    private var spawnInterval: TimeInterval    = 1.0
+    private let spawnDecrease: TimeInterval    = 0.02
+    private let spawnMin: TimeInterval         = 0.35
     
     // Controlo de tempo
-    private var lastSpawn:      TimeInterval = 0
-    private var lastUpdate:     TimeInterval = 0
+    private var lastSpawn:       TimeInterval = 0
+    private var lastUpdate:      TimeInterval = 0
     private var lastSecondCount: TimeInterval = 0
     private var lastBulletSpawn: TimeInterval = 0
     
     // MARK: - Setup
     override func didMove(to view: SKView) {
-        // 0) Faz o (0,0) ser o CENTRO da cena
+        // Define (0,0) como centro da cena
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
         // 1) Fundo
@@ -60,11 +66,10 @@ final class GameScene: SKScene {
         rescale(node: player, desiredWidthRatio: 0.12)
         player.position = CGPoint(x: 0, y: -size.height * 0.4)
         addChild(player)
-        
-        // Corpo físico retangular (evita erro de textura grande)
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody?.isDynamic = false
         player.physicsBody?.categoryBitMask = 1
+        player.physicsBody?.collisionBitMask = 0
         
         physicsWorld.contactDelegate = self
         
@@ -73,7 +78,6 @@ final class GameScene: SKScene {
         camera = cam
         addChild(cam)
         
-        // Espaçamento maior do topo
         let hudYOffset: CGFloat = 80
         
         // Hearts (vidas) à esquerda
@@ -87,7 +91,7 @@ final class GameScene: SKScene {
             heartNodes.append(heart)
         }
         
-        // Time no meio
+        // Time (cronômetro) ao centro
         timeLabel = SKLabelNode(fontNamed: "Arial-BoldMT")
         timeLabel.fontSize  = 22
         timeLabel.fontColor = .white
@@ -100,7 +104,7 @@ final class GameScene: SKScene {
         scoreLabel = SKLabelNode(fontNamed: "Arial-BoldMT")
         scoreLabel.fontSize  = 22
         scoreLabel.fontColor = .white
-        scoreLabel.text      = "Pontos: 0"
+        scoreLabel.text      = " 0"
         scoreLabel.position  = CGPoint(x: size.width/2 - 100, y: size.height/2 - hudYOffset)
         scoreLabel.zPosition = 5
         cam.addChild(scoreLabel)
@@ -111,11 +115,45 @@ final class GameScene: SKScene {
         lastSpawn        = startTime
         lastSecondCount  = startTime
         lastBulletSpawn  = startTime
+        
+        updateHearts()
     }
     
     // MARK: - Spawning
+    private func spawnEnemyOrPickup() {
+        let rand = CGFloat.random(in: 0...1)
+        if lives == 2 && rand < 0.20 {
+            spawnPickup()
+            return
+        }
+        if lives == 1 && rand < 0.40 {
+            spawnPickup()
+            return
+        }
+        spawnEnemy()
+    }
+    
     private func spawnEnemy() {
-        let texEnemy = SKTexture(imageNamed: "spaceship_red")
+        let r = CGFloat.random(in: 0...1)
+        let spriteName: String
+        let hp: Int
+        let speed: CGFloat
+        
+        if r < 0.15 {
+            spriteName = "spaceship_3"   // precisa de 3 tiros, mais lento
+            hp = 3
+            speed = baseEnemySpeed * 0.5
+        } else if r < 0.40 {
+            spriteName = "spaceship_2"   // precisa de 2 tiros, velocidade média
+            hp = 2
+            speed = baseEnemySpeed * 0.75
+        } else {
+            spriteName = "spaceship_1"   // precisa de 1 tiro, velocidade normal
+            hp = 1
+            speed = baseEnemySpeed
+        }
+        
+        let texEnemy = SKTexture(imageNamed: spriteName)
         let enemy    = SKSpriteNode(texture: texEnemy)
         rescale(node: enemy, desiredWidthRatio: 0.10)
         
@@ -124,14 +162,37 @@ final class GameScene: SKScene {
         enemy.position = CGPoint(x: xPos, y: size.height/2 + enemy.size.height)
         enemy.zRotation = .pi
         
+        enemy.userData = ["hp": hp, "speed": speed]
+        
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
         enemy.physicsBody?.isDynamic = true
         enemy.physicsBody?.affectedByGravity = false
         enemy.physicsBody?.categoryBitMask = 2
         enemy.physicsBody?.contactTestBitMask = 1 | 4
+        enemy.physicsBody?.collisionBitMask = 0
         
         addChild(enemy)
         enemies.append(enemy)
+    }
+    
+    private func spawnPickup() {
+        let pickup = SKSpriteNode(imageNamed: "heart")
+        rescale(node: pickup, desiredWidthRatio: 0.06)
+        
+        let halfW = size.width / 2
+        let xPos  = CGFloat.random(in: -halfW ... halfW)
+        pickup.position = CGPoint(x: xPos, y: size.height/2 + pickup.size.height)
+        pickup.zRotation = .pi
+        
+        pickup.physicsBody = SKPhysicsBody(rectangleOf: pickup.size)
+        pickup.physicsBody?.isDynamic = true
+        pickup.physicsBody?.affectedByGravity = false
+        pickup.physicsBody?.categoryBitMask = 8
+        pickup.physicsBody?.contactTestBitMask = 1
+        pickup.physicsBody?.collisionBitMask = 0
+        
+        addChild(pickup)
+        pickups.append(pickup)
     }
     
     private func spawnBullet() {
@@ -139,7 +200,6 @@ final class GameScene: SKScene {
         let bullet    = SKSpriteNode(texture: texBullet)
         rescale(node: bullet, desiredWidthRatio: 0.03)
         
-        // Posição: na ponta do player
         bullet.position = CGPoint(
             x: player.position.x,
             y: player.position.y + player.size.height/2 + bullet.size.height/2
@@ -151,6 +211,7 @@ final class GameScene: SKScene {
         bullet.physicsBody?.affectedByGravity = false
         bullet.physicsBody?.categoryBitMask = 4
         bullet.physicsBody?.contactTestBitMask = 2
+        bullet.physicsBody?.collisionBitMask = 0
         
         addChild(bullet)
         bullets.append(bullet)
@@ -161,22 +222,22 @@ final class GameScene: SKScene {
         let dt = currentTime - lastUpdate
         lastUpdate = currentTime
         
-        // 1) Atualiza tempo de sobrevivência e pontuação por segundo
+        // 1) Cronômetro e ponto por segundo
         let elapsed = currentTime - startTime
         if currentTime - lastSecondCount >= 1.0 {
             lastSecondCount += 1.0
             score += 1
         }
-        timeLabel.text = "Tempo: \(Int(elapsed)) s"
+        timeLabel.text = "\(Int(elapsed)) s"
         
-        // 2) Spawn de inimigos
+        // 2) Spawn de inimigos/pickups
         if currentTime - lastSpawn > spawnInterval {
-            spawnEnemy()
+            spawnEnemyOrPickup()
             lastSpawn      = currentTime
             spawnInterval  = max(spawnMin, spawnInterval - spawnDecrease)
         }
         
-        // 3) Spawn de tiros automáticos
+        // 3) Spawn de balas automáticas
         if currentTime - lastBulletSpawn > bulletInterval {
             spawnBullet()
             lastBulletSpawn = currentTime
@@ -184,7 +245,9 @@ final class GameScene: SKScene {
         
         // 4) Move inimigos para baixo
         for enemy in enemies {
-            enemy.position.y -= enemySpeed * CGFloat(dt)
+            if let speed = enemy.userData?["speed"] as? CGFloat {
+                enemy.position.y -= speed * CGFloat(dt)
+            }
         }
         
         // 5) Move balas para cima
@@ -192,7 +255,12 @@ final class GameScene: SKScene {
             bullet.position.y += bulletSpeed * CGFloat(dt)
         }
         
-        // 6) Remove inimigos que saíram do ecrã (somam +5 pontos)
+        // 6) Move pickups para baixo
+        for pickup in pickups {
+            pickup.position.y -= baseEnemySpeed * CGFloat(dt)
+        }
+        
+        // 7) Limpa inimigos fora do ecrã (+5 pontos)
         enemies.removeAll { e in
             if e.position.y < -size.height/2 - e.size.height {
                 e.removeFromParent()
@@ -202,10 +270,19 @@ final class GameScene: SKScene {
             return false
         }
         
-        // 7) Remove balas que saíram do ecrã
+        // 8) Limpa balas fora do ecrã
         bullets.removeAll { b in
             if b.position.y > size.height/2 + b.size.height {
                 b.removeFromParent()
+                return true
+            }
+            return false
+        }
+        
+        // 9) Limpa pickups fora do ecrã
+        pickups.removeAll { p in
+            if p.position.y < -size.height/2 - p.size.height {
+                p.removeFromParent()
                 return true
             }
             return false
@@ -242,32 +319,74 @@ extension GameScene: SKPhysicsContactDelegate {
         let bMask = contact.bodyB.categoryBitMask
         let combined = aMask | bMask
         
-        // 1 = player, 2 = enemy, 4 = bullet
-        if combined == 3 { // player(1) × enemy(2)
-            if aMask == 2 { contact.bodyA.node?.removeFromParent() }
-            else { contact.bodyB.node?.removeFromParent() }
-            if let idx = enemies.firstIndex(where: { $0.parent == nil }) {
-                enemies.remove(at: idx)
+        // Player (1) × Enemy (2)
+        if combined == 3 {
+            if let enemyNode = (aMask == 2 ? contact.bodyA.node : contact.bodyB.node) as? SKSpriteNode {
+                handleEnemyHit(enemyNode)
             }
-            lives -= 1
-            if lives <= 0 { gameOver() }
         }
-        else if combined == 6 { // bullet(4) × enemy(2)
-            if aMask == 2 {
-                contact.bodyA.node?.removeFromParent()
-                contact.bodyB.node?.removeFromParent()
+        // Bullet (4) × Enemy (2)
+        else if combined == 6 {
+            if
+                let enemyNode  = (aMask == 2 ? contact.bodyA.node : contact.bodyB.node) as? SKSpriteNode,
+                let bulletNode = (aMask == 4 ? contact.bodyA.node : contact.bodyB.node) as? SKSpriteNode
+            {
+                handleBulletHit(enemyNode, bulletNode)
+            }
+        }
+        // Player (1) × Pickup (8)
+        else if combined == 9 {
+            if let pickupNode = (aMask == 8 ? contact.bodyA.node : contact.bodyB.node) as? SKSpriteNode {
+                handlePickup(pickupNode)
+            }
+        }
+    }
+    
+    private func handleEnemyHit(_ enemy: SKSpriteNode) {
+        if var hp = enemy.userData?["hp"] as? Int {
+            hp -= 1
+            if hp > 0 {
+                enemy.userData?["hp"] = hp
             } else {
-                contact.bodyB.node?.removeFromParent()
-                contact.bodyA.node?.removeFromParent()
+                enemy.removeFromParent()
+                if let idx = enemies.firstIndex(of: enemy) {
+                    enemies.remove(at: idx)
+                }
+                score += 5
             }
-            if let eIdx = enemies.firstIndex(where: { $0.parent == nil }) {
-                enemies.remove(at: eIdx)
-            }
-            if let bIdx = bullets.firstIndex(where: { $0.parent == nil }) {
-                bullets.remove(at: bIdx)
-            }
-            score += 5
         }
+        lives -= 1
+        if lives <= 0 {
+            gameOver()
+        }
+    }
+    
+    private func handleBulletHit(_ enemy: SKSpriteNode, _ bullet: SKSpriteNode) {
+        bullet.removeFromParent()
+        if let bIdx = bullets.firstIndex(of: bullet) {
+            bullets.remove(at: bIdx)
+        }
+        
+        if var hp = enemy.userData?["hp"] as? Int {
+            hp -= 1
+            if hp > 0 {
+                enemy.userData?["hp"] = hp
+            } else {
+                enemy.removeFromParent()
+                if let eIdx = enemies.firstIndex(of: enemy) {
+                    enemies.remove(at: eIdx)
+                }
+                score += 5
+            }
+        }
+    }
+    
+    private func handlePickup(_ pickup: SKSpriteNode) {
+        pickup.removeFromParent()
+        if let idx = pickups.firstIndex(of: pickup) {
+            pickups.remove(at: idx)
+        }
+        lives += 1
     }
     
     private func gameOver() {
@@ -282,7 +401,7 @@ extension GameScene: SKPhysicsContactDelegate {
     }
 }
 
-// MARK: - Extensão p/ limitar valores
+// MARK: - Extensão para limitar valores
 private extension Comparable {
     func clamped(to range: ClosedRange<Self>) -> Self {
         min(max(self, range.lowerBound), range.upperBound)
@@ -292,11 +411,11 @@ private extension Comparable {
 // MARK: - Atualização de corações (vidas)
 private extension GameScene {
     func updateHearts() {
-        // Remove todos os corações atuais
-        for heart in heartNodes { heart.removeFromParent() }
+        for heart in heartNodes {
+            heart.removeFromParent()
+        }
         heartNodes.removeAll()
         
-        // Desenha de novo conforme o número de vidas
         for i in 0..<lives {
             let heart = SKSpriteNode(imageNamed: "heart")
             rescale(node: heart, desiredWidthRatio: 0.06)
