@@ -1,0 +1,674 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E11A33BD2DF04C4400CEE52C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33BC2DF04C4400CEE52C /* AppDelegate.swift */; };
+		E11A33BF2DF04C4400CEE52C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33BE2DF04C4400CEE52C /* GameViewController.swift */; };
+		E11A33C22DF04C4400CEE52C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11A33C02DF04C4400CEE52C /* Main.storyboard */; };
+		E11A33C52DF04C4400CEE52C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11A33C32DF04C4400CEE52C /* LaunchScreen.storyboard */; };
+		E11A33CD2DF04C4400CEE52C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33CC2DF04C4400CEE52C /* AppDelegate.swift */; };
+		E11A33CF2DF04C4400CEE52C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33CE2DF04C4400CEE52C /* GameViewController.swift */; };
+		E11A33D22DF04C4400CEE52C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11A33D02DF04C4400CEE52C /* Main.storyboard */; };
+		E11A33D52DF04C4400CEE52C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11A33D32DF04C4400CEE52C /* LaunchScreen.storyboard */; };
+		E11A33DD2DF04C4400CEE52C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33DC2DF04C4400CEE52C /* AppDelegate.swift */; };
+		E11A33DF2DF04C4400CEE52C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33DE2DF04C4400CEE52C /* GameViewController.swift */; };
+		E11A33E22DF04C4400CEE52C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11A33E02DF04C4400CEE52C /* Main.storyboard */; };
+		E11A33E42DF04C4400CEE52C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B12DF04C4100CEE52C /* Actions.sks */; };
+		E11A33E52DF04C4400CEE52C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B12DF04C4100CEE52C /* Actions.sks */; };
+		E11A33E62DF04C4400CEE52C /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B12DF04C4100CEE52C /* Actions.sks */; };
+		E11A33E72DF04C4400CEE52C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B22DF04C4100CEE52C /* GameScene.sks */; };
+		E11A33E82DF04C4400CEE52C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B22DF04C4100CEE52C /* GameScene.sks */; };
+		E11A33E92DF04C4400CEE52C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B22DF04C4100CEE52C /* GameScene.sks */; };
+		E11A33EA2DF04C4400CEE52C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33B32DF04C4100CEE52C /* GameScene.swift */; };
+		E11A33EB2DF04C4400CEE52C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33B32DF04C4100CEE52C /* GameScene.swift */; };
+		E11A33EC2DF04C4400CEE52C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A33B32DF04C4100CEE52C /* GameScene.swift */; };
+		E11A33ED2DF04C4400CEE52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B42DF04C4400CEE52C /* Assets.xcassets */; };
+		E11A33EE2DF04C4400CEE52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B42DF04C4400CEE52C /* Assets.xcassets */; };
+		E11A33EF2DF04C4400CEE52C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E11A33B42DF04C4400CEE52C /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E11A33B12DF04C4100CEE52C /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		E11A33B22DF04C4100CEE52C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		E11A33B32DF04C4100CEE52C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		E11A33B42DF04C4400CEE52C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E11A33B92DF04C4400CEE52C /* SpaceSurvival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceSurvival.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11A33BC2DF04C4400CEE52C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E11A33BE2DF04C4400CEE52C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E11A33C12DF04C4400CEE52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E11A33C42DF04C4400CEE52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E11A33CA2DF04C4400CEE52C /* SpaceSurvival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceSurvival.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11A33CC2DF04C4400CEE52C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E11A33CE2DF04C4400CEE52C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E11A33D12DF04C4400CEE52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E11A33D42DF04C4400CEE52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E11A33DA2DF04C4400CEE52C /* SpaceSurvival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceSurvival.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11A33DC2DF04C4400CEE52C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E11A33DE2DF04C4400CEE52C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E11A33E12DF04C4400CEE52C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E11A33E32DF04C4400CEE52C /* SpaceSurvival_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpaceSurvival_macOS.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E11A33B62DF04C4400CEE52C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11A33C72DF04C4400CEE52C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11A33D72DF04C4400CEE52C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E11A33AB2DF04C4000CEE52C = {
+			isa = PBXGroup;
+			children = (
+				E11A33B02DF04C4100CEE52C /* SpaceSurvival Shared */,
+				E11A33BB2DF04C4400CEE52C /* SpaceSurvival iOS */,
+				E11A33CB2DF04C4400CEE52C /* SpaceSurvival tvOS */,
+				E11A33DB2DF04C4400CEE52C /* SpaceSurvival macOS */,
+				E11A33BA2DF04C4400CEE52C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E11A33B02DF04C4100CEE52C /* SpaceSurvival Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E11A33B12DF04C4100CEE52C /* Actions.sks */,
+				E11A33B22DF04C4100CEE52C /* GameScene.sks */,
+				E11A33B32DF04C4100CEE52C /* GameScene.swift */,
+				E11A33B42DF04C4400CEE52C /* Assets.xcassets */,
+			);
+			path = "SpaceSurvival Shared";
+			sourceTree = "<group>";
+		};
+		E11A33BA2DF04C4400CEE52C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E11A33B92DF04C4400CEE52C /* SpaceSurvival.app */,
+				E11A33CA2DF04C4400CEE52C /* SpaceSurvival.app */,
+				E11A33DA2DF04C4400CEE52C /* SpaceSurvival.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E11A33BB2DF04C4400CEE52C /* SpaceSurvival iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E11A33BC2DF04C4400CEE52C /* AppDelegate.swift */,
+				E11A33BE2DF04C4400CEE52C /* GameViewController.swift */,
+				E11A33C02DF04C4400CEE52C /* Main.storyboard */,
+				E11A33C32DF04C4400CEE52C /* LaunchScreen.storyboard */,
+			);
+			path = "SpaceSurvival iOS";
+			sourceTree = "<group>";
+		};
+		E11A33CB2DF04C4400CEE52C /* SpaceSurvival tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				E11A33CC2DF04C4400CEE52C /* AppDelegate.swift */,
+				E11A33CE2DF04C4400CEE52C /* GameViewController.swift */,
+				E11A33D02DF04C4400CEE52C /* Main.storyboard */,
+				E11A33D32DF04C4400CEE52C /* LaunchScreen.storyboard */,
+			);
+			path = "SpaceSurvival tvOS";
+			sourceTree = "<group>";
+		};
+		E11A33DB2DF04C4400CEE52C /* SpaceSurvival macOS */ = {
+			isa = PBXGroup;
+			children = (
+				E11A33DC2DF04C4400CEE52C /* AppDelegate.swift */,
+				E11A33DE2DF04C4400CEE52C /* GameViewController.swift */,
+				E11A33E02DF04C4400CEE52C /* Main.storyboard */,
+				E11A33E32DF04C4400CEE52C /* SpaceSurvival_macOS.entitlements */,
+			);
+			path = "SpaceSurvival macOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E11A33B82DF04C4400CEE52C /* SpaceSurvival iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11A33F22DF04C4400CEE52C /* Build configuration list for PBXNativeTarget "SpaceSurvival iOS" */;
+			buildPhases = (
+				E11A33B52DF04C4400CEE52C /* Sources */,
+				E11A33B62DF04C4400CEE52C /* Frameworks */,
+				E11A33B72DF04C4400CEE52C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SpaceSurvival iOS";
+			productName = "SpaceSurvival iOS";
+			productReference = E11A33B92DF04C4400CEE52C /* SpaceSurvival.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E11A33C92DF04C4400CEE52C /* SpaceSurvival tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11A33F52DF04C4400CEE52C /* Build configuration list for PBXNativeTarget "SpaceSurvival tvOS" */;
+			buildPhases = (
+				E11A33C62DF04C4400CEE52C /* Sources */,
+				E11A33C72DF04C4400CEE52C /* Frameworks */,
+				E11A33C82DF04C4400CEE52C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SpaceSurvival tvOS";
+			productName = "SpaceSurvival tvOS";
+			productReference = E11A33CA2DF04C4400CEE52C /* SpaceSurvival.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E11A33D92DF04C4400CEE52C /* SpaceSurvival macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11A33F82DF04C4400CEE52C /* Build configuration list for PBXNativeTarget "SpaceSurvival macOS" */;
+			buildPhases = (
+				E11A33D62DF04C4400CEE52C /* Sources */,
+				E11A33D72DF04C4400CEE52C /* Frameworks */,
+				E11A33D82DF04C4400CEE52C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SpaceSurvival macOS";
+			productName = "SpaceSurvival macOS";
+			productReference = E11A33DA2DF04C4400CEE52C /* SpaceSurvival.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E11A33AC2DF04C4000CEE52C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					E11A33B82DF04C4400CEE52C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					E11A33C92DF04C4400CEE52C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					E11A33D92DF04C4400CEE52C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = E11A33AF2DF04C4000CEE52C /* Build configuration list for PBXProject "SpaceSurvival" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E11A33AB2DF04C4000CEE52C;
+			productRefGroup = E11A33BA2DF04C4400CEE52C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E11A33B82DF04C4400CEE52C /* SpaceSurvival iOS */,
+				E11A33C92DF04C4400CEE52C /* SpaceSurvival tvOS */,
+				E11A33D92DF04C4400CEE52C /* SpaceSurvival macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E11A33B72DF04C4400CEE52C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11A33E72DF04C4400CEE52C /* GameScene.sks in Resources */,
+				E11A33C22DF04C4400CEE52C /* Main.storyboard in Resources */,
+				E11A33E42DF04C4400CEE52C /* Actions.sks in Resources */,
+				E11A33C52DF04C4400CEE52C /* LaunchScreen.storyboard in Resources */,
+				E11A33ED2DF04C4400CEE52C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11A33C82DF04C4400CEE52C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11A33E82DF04C4400CEE52C /* GameScene.sks in Resources */,
+				E11A33D22DF04C4400CEE52C /* Main.storyboard in Resources */,
+				E11A33E52DF04C4400CEE52C /* Actions.sks in Resources */,
+				E11A33D52DF04C4400CEE52C /* LaunchScreen.storyboard in Resources */,
+				E11A33EE2DF04C4400CEE52C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11A33D82DF04C4400CEE52C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11A33E22DF04C4400CEE52C /* Main.storyboard in Resources */,
+				E11A33E92DF04C4400CEE52C /* GameScene.sks in Resources */,
+				E11A33EF2DF04C4400CEE52C /* Assets.xcassets in Resources */,
+				E11A33E62DF04C4400CEE52C /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E11A33B52DF04C4400CEE52C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11A33EA2DF04C4400CEE52C /* GameScene.swift in Sources */,
+				E11A33BF2DF04C4400CEE52C /* GameViewController.swift in Sources */,
+				E11A33BD2DF04C4400CEE52C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11A33C62DF04C4400CEE52C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11A33EB2DF04C4400CEE52C /* GameScene.swift in Sources */,
+				E11A33CF2DF04C4400CEE52C /* GameViewController.swift in Sources */,
+				E11A33CD2DF04C4400CEE52C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11A33D62DF04C4400CEE52C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11A33EC2DF04C4400CEE52C /* GameScene.swift in Sources */,
+				E11A33DF2DF04C4400CEE52C /* GameViewController.swift in Sources */,
+				E11A33DD2DF04C4400CEE52C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E11A33C02DF04C4400CEE52C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E11A33C12DF04C4400CEE52C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E11A33C32DF04C4400CEE52C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E11A33C42DF04C4400CEE52C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E11A33D02DF04C4400CEE52C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E11A33D12DF04C4400CEE52C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E11A33D32DF04C4400CEE52C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E11A33D42DF04C4400CEE52C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E11A33E02DF04C4400CEE52C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E11A33E12DF04C4400CEE52C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E11A33F02DF04C4400CEE52C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E11A33F12DF04C4400CEE52C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		E11A33F32DF04C4400CEE52C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NunoIsidoro.SpaceSurvival;
+				PRODUCT_NAME = SpaceSurvival;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E11A33F42DF04C4400CEE52C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NunoIsidoro.SpaceSurvival;
+				PRODUCT_NAME = SpaceSurvival;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E11A33F62DF04C4400CEE52C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NunoIsidoro.SpaceSurvival;
+				PRODUCT_NAME = SpaceSurvival;
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 16.1;
+			};
+			name = Debug;
+		};
+		E11A33F72DF04C4400CEE52C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NunoIsidoro.SpaceSurvival;
+				PRODUCT_NAME = SpaceSurvival;
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 16.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E11A33F92DF04C4400CEE52C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SpaceSurvival macOS/SpaceSurvival_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NunoIsidoro.SpaceSurvival;
+				PRODUCT_NAME = SpaceSurvival;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E11A33FA2DF04C4400CEE52C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SpaceSurvival macOS/SpaceSurvival_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = NunoIsidoro.SpaceSurvival;
+				PRODUCT_NAME = SpaceSurvival;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E11A33AF2DF04C4000CEE52C /* Build configuration list for PBXProject "SpaceSurvival" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11A33F02DF04C4400CEE52C /* Debug */,
+				E11A33F12DF04C4400CEE52C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11A33F22DF04C4400CEE52C /* Build configuration list for PBXNativeTarget "SpaceSurvival iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11A33F32DF04C4400CEE52C /* Debug */,
+				E11A33F42DF04C4400CEE52C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11A33F52DF04C4400CEE52C /* Build configuration list for PBXNativeTarget "SpaceSurvival tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11A33F62DF04C4400CEE52C /* Debug */,
+				E11A33F72DF04C4400CEE52C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11A33F82DF04C4400CEE52C /* Build configuration list for PBXNativeTarget "SpaceSurvival macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11A33F92DF04C4400CEE52C /* Debug */,
+				E11A33FA2DF04C4400CEE52C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E11A33AC2DF04C4000CEE52C /* Project object */;
+}
