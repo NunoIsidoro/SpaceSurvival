@@ -1,172 +1,82 @@
-🚀 SpaceSurvival
+# 🚀 SpaceSurvival
 
 Um jogo de sobrevivência espacial desenvolvido em Swift usando SpriteKit para iOS.
 
+![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
+![iOS](https://img.shields.io/badge/iOS-13.0+-blue.svg)
+![SpriteKit](https://img.shields.io/badge/SpriteKit-Framework-green.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-📖 Sobre o Jogo
+## 📖 Sobre o Jogo
 
 SpaceSurvival é um jogo de arcade espacial onde o jogador controla uma nave que deve sobreviver a ondas infinitas de inimigos. O objetivo é simples: sobreviva o máximo de tempo possível, destrua inimigos para ganhar pontos e colete power-ups para recuperar vidas.
 
-✨ Características Principais
+### ✨ Características Principais
 
-•
-🎮 Controle Intuitivo: Movimentação tátil suave e responsiva
+- 🎮 **Controle Intuitivo**: Movimentação tátil suave e responsiva
+- 🔫 **Disparo Automático**: Projéteis são disparados automaticamente
+- 👾 **Três Tipos de Inimigos**: Cada um com HP e velocidade diferentes
+- ❤️ **Sistema de Vidas**: Comece com 3 vidas, colete corações para recuperar
+- 📈 **Dificuldade Progressiva**: O jogo fica mais difícil com o tempo
+- 🏆 **Sistema de Pontuação**: Ganhe pontos por tempo de sobrevivência e inimigos destruídos
+- 🎨 **Visual Limpo**: Interface moderna com tema espacial
 
-•
-🔫 Disparo Automático: Projéteis são disparados automaticamente
+## 🎯 Como Jogar
 
-•
-👾 Três Tipos de Inimigos: Cada um com HP e velocidade diferentes
+1. **Movimento**: Toque e arraste na tela para mover a nave horizontalmente
+2. **Disparo**: A nave dispara automaticamente a cada 0.5 segundos
+3. **Sobrevivência**: Evite colidir com inimigos para não perder vidas
+4. **Power-ups**: Colete corações vermelhos para recuperar vidas
+5. **Pontuação**: 
+   - +1 ponto por segundo de sobrevivência
+   - +5 pontos por inimigo destruído
+   - +5 pontos por inimigo que sai da tela
 
-•
-❤️ Sistema de Vidas: Comece com 3 vidas, colete corações para recuperar
+## 🛠️ Tecnologias Utilizadas
 
-•
-📈 Dificuldade Progressiva: O jogo fica mais difícil com o tempo
+- **Linguagem**: Swift 5.0+
+- **Framework**: SpriteKit
+- **Plataforma**: iOS 13.0+
+- **IDE**: Xcode 12.0+
 
-•
-🏆 Sistema de Pontuação: Ganhe pontos por tempo de sobrevivência e inimigos destruídos
+## 📱 Requisitos do Sistema
 
-•
-🎨 Visual Limpo: Interface moderna com tema espacial
+- iOS 13.0 ou superior
+- iPhone/iPad compatível
+- Xcode 12.0+ (para desenvolvimento)
 
-🎯 Como Jogar
+## 🚀 Instalação e Execução
 
-1.
-Movimento: Toque e arraste na tela para mover a nave horizontalmente
+### Pré-requisitos
 
-2.
-Disparo: A nave dispara automaticamente a cada 0.5 segundos
+- macOS com Xcode instalado
+- Conta de desenvolvedor Apple (para testar em dispositivo físico)
 
-3.
-Sobrevivência: Evite colidir com inimigos para não perder vidas
+### Passos para Instalação
 
-4.
-Power-ups: Colete corações vermelhos para recuperar vidas
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/SpaceSurvival.git
+   cd SpaceSurvival
+   ```
 
-5.
-Pontuação:
+2. **Abra o projeto no Xcode**:
+   ```bash
+   open SpaceSurvival.xcodeproj
+   ```
 
-•
-+1 ponto por segundo de sobrevivência
+3. **Configure o Team de Desenvolvimento**:
+   - Selecione o projeto no navegador
+   - Vá para "Signing & Capabilities"
+   - Selecione seu Team de desenvolvimento
 
-•
-+5 pontos por inimigo destruído
+4. **Execute o projeto**:
+   - Selecione um simulador ou dispositivo
+   - Pressione `Cmd + R` ou clique no botão Play
 
-•
-+5 pontos por inimigo que sai da tela
+## 🏗️ Estrutura do Projeto
 
-
-
-🛠️ Tecnologias Utilizadas
-
-•
-Linguagem: Swift 5.0+
-
-•
-Framework: SpriteKit
-
-•
-Plataforma: iOS 13.0+
-
-•
-IDE: Xcode 12.0+
-
-📱 Requisitos do Sistema
-
-•
-iOS 13.0 ou superior
-
-•
-iPhone/iPad compatível
-
-•
-Xcode 12.0+ (para desenvolvimento)
-
-🚀 Instalação e Execução
-
-Pré-requisitos
-
-•
-macOS com Xcode instalado
-
-•
-Conta de desenvolvedor Apple (para testar em dispositivo físico)
-
-Passos para Instalação
-
-1.
-Clone o repositório:
-
-2.
-Abra o projeto no Xcode:
-
-3.
-Configure o Team de Desenvolvimento:
-
-•
-Selecione o projeto no navegador
-
-•
-Vá para "Signing & Capabilities"
-
-•
-Selecione seu Team de desenvolvimento
-
-
-
-4.
-Execute o projeto:
-
-•
-Selecione um simulador ou dispositivo
-
-•
-Pressione Cmd + R ou clique no botão Play
-
-
-
-🏗️ Estrutura do Projeto
-
-Plain Text
-
-
+```
 SpaceSurvival/
 ├── GameScene.swift          # Classe principal do jogo
 ├── GameViewController.swift # Controlador da view
@@ -180,211 +90,120 @@ SpaceSurvival/
 │   └── background          # Fundo do jogo
 ├── Info.plist              # Configurações do app
 └── README.md               # Este arquivo
+```
 
+## 🎮 Mecânicas do Jogo
 
-🎮 Mecânicas do Jogo
+### Tipos de Inimigos
 
-Tipos de Inimigos
+| Tipo | HP | Velocidade | Probabilidade | Cor |
+|------|----|-----------|--------------|----|
+| Fraco | 1 | 100% | 60% | Azul |
+| Médio | 2 | 75% | 25% | Laranja |
+| Forte | 3 | 50% | 15% | Vermelho |
 
-TipoHPVelocidadeProbabilidadeCorFraco1100%60%AzulMédio275%25%LaranjaForte350%15%Vermelho
+### Sistema de Pontuação
 
-Sistema de Pontuação
+- **Sobrevivência**: 1 ponto por segundo
+- **Inimigo Destruído**: 5 pontos
+- **Inimigo Escapou**: 5 pontos (bônus por sobrevivência)
 
-•
-Sobrevivência: 1 ponto por segundo
+### Dificuldade Progressiva
 
-•
-Inimigo Destruído: 5 pontos
+- **Intervalo Inicial**: 1.0 segundo entre spawns
+- **Diminuição**: 0.02 segundos por spawn
+- **Intervalo Mínimo**: 0.35 segundos
 
-•
-Inimigo Escapou: 5 pontos (bônus por sobrevivência)
+## 🔧 Arquitetura do Código
 
-Dificuldade Progressiva
+### Principais Classes e Métodos
 
-•
-Intervalo Inicial: 1.0 segundo entre spawns
+- **GameScene**: Classe principal que herda de `SKScene`
+  - `didMove(to:)`: Inicialização da cena
+  - `setupScene()`: Configuração dos elementos visuais
+  - `update(_:)`: Loop principal do jogo (60 FPS)
+  - `spawnEnemy()`: Criação de inimigos
+  - `handleCollisions()`: Tratamento de colisões
 
-•
-Diminuição: 0.02 segundos por spawn
+### Padrões de Design Utilizados
 
-•
-Intervalo Mínimo: 0.35 segundos
+- **Observer Pattern**: Property observers (`didSet`)
+- **Delegate Pattern**: `SKPhysicsContactDelegate`
+- **Factory Pattern**: Métodos de spawn
+- **Extension Pattern**: Organização do código
 
-🔧 Arquitetura do Código
+### Conceitos Avançados
 
-Principais Classes e Métodos
+- **Property Observers**: Atualização automática da UI
+- **Physics System**: Detecção de colisões com SpriteKit
+- **Delta Time**: Movimentação suave independente do FPS
+- **Memory Management**: Limpeza automática de objetos
 
-•
-GameScene: Classe principal que herda de SKScene
+## 🎨 Assets Necessários
 
-•
-didMove(to:): Inicialização da cena
+O jogo requer os seguintes assets na pasta `Assets.xcassets`:
 
-•
-setupScene(): Configuração dos elementos visuais
+- `spaceship_green`: Nave do jogador
+- `spaceship_1`, `spaceship_2`, `spaceship_3`: Naves inimigas
+- `bullet`: Projétil
+- `heart`: Power-up de vida
+- `background`: Fundo espacial
 
-•
-update(_:): Loop principal do jogo (60 FPS)
+## 🤝 Como Contribuir
 
-•
-spawnEnemy(): Criação de inimigos
+1. **Fork** o projeto
+2. **Crie** uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. **Commit** suas mudanças (`git commit -m 'Adiciona nova feature'`)
+4. **Push** para a branch (`git push origin feature/nova-feature`)
+5. **Abra** um Pull Request
 
-•
-handleCollisions(): Tratamento de colisões
+### Ideias para Contribuições
 
+- 🎵 Sistema de áudio (efeitos sonoros e música)
+- ✨ Efeitos visuais (partículas, explosões)
+- 🏆 Sistema de conquistas
+- 💾 Persistência de dados (high scores)
+- 🎯 Novos tipos de power-ups
+- 🤖 Inimigos com IA mais avançada
+- 📱 Suporte para múltiplas resoluções
 
+## 🐛 Problemas Conhecidos
 
-Padrões de Design Utilizados
+- Nenhum problema conhecido no momento
 
-•
-Observer Pattern: Property observers (didSet)
+## 📝 Changelog
 
-•
-Delegate Pattern: SKPhysicsContactDelegate
+### v1.0.0 (Atual)
+- ✅ Implementação básica do jogo
+- ✅ Sistema de colisões
+- ✅ Três tipos de inimigos
+- ✅ Sistema de vidas e pontuação
+- ✅ Dificuldade progressiva
+- ✅ Power-ups de vida
 
-•
-Factory Pattern: Métodos de spawn
+## 📄 Licença
 
-•
-Extension Pattern: Organização do código
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-Conceitos Avançados
+## 👨‍💻 Autor
 
-•
-Property Observers: Atualização automática da UI
+**Seu Nome**
+- GitHub: [@seu-usuario](https://github.com/seu-usuario)
+- Email: seu.email@exemplo.com
 
-•
-Physics System: Detecção de colisões com SpriteKit
+## 🙏 Agradecimentos
 
-•
-Delta Time: Movimentação suave independente do FPS
+- Apple pela framework SpriteKit
+- Comunidade Swift pela documentação e tutoriais
+- Designers que criaram os assets utilizados
 
-•
-Memory Management: Limpeza automática de objetos
+## 📚 Recursos Adicionais
 
-🎨 Assets Necessários
+- [Documentação do SpriteKit](https://developer.apple.com/documentation/spritekit)
+- [Guia da Linguagem Swift](https://docs.swift.org/swift-book/)
+- [Ray Wenderlich - Tutoriais de Jogos iOS](https://www.raywenderlich.com/ios/games)
 
-O jogo requer os seguintes assets na pasta Assets.xcassets:
+---
 
-•
-spaceship_green: Nave do jogador
-
-•
-spaceship_1, spaceship_2, spaceship_3: Naves inimigas
-
-•
-bullet: Projétil
-
-•
-heart: Power-up de vida
-
-•
-background: Fundo espacial
-
-🤝 Como Contribuir
-
-1.
-Fork o projeto
-
-2.
-Crie uma branch para sua feature (git checkout -b feature/nova-feature)
-
-3.
-Commit suas mudanças (git commit -m 'Adiciona nova feature')
-
-4.
-Push para a branch (git push origin feature/nova-feature)
-
-5.
-Abra um Pull Request
-
-Ideias para Contribuições
-
-•
-🎵 Sistema de áudio (efeitos sonoros e música)
-
-•
-✨ Efeitos visuais (partículas, explosões)
-
-•
-🏆 Sistema de conquistas
-
-•
-💾 Persistência de dados (high scores)
-
-•
-🎯 Novos tipos de power-ups
-
-•
-🤖 Inimigos com IA mais avançada
-
-•
-📱 Suporte para múltiplas resoluções
-
-🐛 Problemas Conhecidos
-
-•
-Nenhum problema conhecido no momento
-
-📝 Changelog
-
-v1.0.0 (Atual)
-
-•
-✅ Implementação básica do jogo
-
-•
-✅ Sistema de colisões
-
-•
-✅ Três tipos de inimigos
-
-•
-✅ Sistema de vidas e pontuação
-
-•
-✅ Dificuldade progressiva
-
-•
-✅ Power-ups de vida
-
-📄 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
-
-👨‍💻 Autor
-
-Seu Nome
-
-•
-GitHub: @NunoIsidoro
-
-
-🙏 Agradecimentos
-
-•
-Apple pela framework SpriteKit
-
-•
-Comunidade Swift pela documentação e tutoriais
-
-•
-Designers que criaram os assets utilizados
-
-📚 Recursos Adicionais
-
-•
-Documentação do SpriteKit
-
-•
-Guia da Linguagem Swift
-
-•
-Ray Wenderlich - Tutoriais de Jogos iOS
-
-
-
-
-
-⭐ Se gostou do projeto, deixe uma estrela! ⭐
+⭐ **Se gostou do projeto, deixe uma estrela!** ⭐
 
