@@ -98,9 +98,9 @@ SpaceSurvival/
 
 | Tipo | HP | Velocidade | Probabilidade | Cor |
 |------|----|-----------|--------------|----|
-| Fraco | 1 | 100% | 60% | Azul |
+| Fraco | 1 | 100% | 60% | Vermelho |
 | Médio | 2 | 75% | 25% | Laranja |
-| Forte | 3 | 50% | 15% | Vermelho |
+| Forte | 3 | 50% | 15% | Roxo |
 
 ### Sistema de Pontuação
 
