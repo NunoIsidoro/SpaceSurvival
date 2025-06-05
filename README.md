@@ -357,10 +357,8 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para d
 Seu Nome
 
 •
-GitHub: @seu-usuario
+GitHub: @NunoIsidoro
 
-•
-Email: seu.email@exemplo.com
 
 🙏 Agradecimentos
 
