@@ -188,14 +188,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ## 👨‍💻 Autor
 
 **Seu Nome**
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- Email: seu.email@exemplo.com
-
-## 🙏 Agradecimentos
-
-- Apple pela framework SpriteKit
-- Comunidade Swift pela documentação e tutoriais
-- Designers que criaram os assets utilizados
+- GitHub: [@NunoIsidoro](https://github.com/NunoIsidoro)
 
 ## 📚 Recursos Adicionais
 
