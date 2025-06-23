@@ -187,7 +187,6 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 👨‍💻 Autor
 
-**Seu Nome**
 - GitHub: [@NunoIsidoro](https://github.com/NunoIsidoro)
 
 ## 📚 Recursos Adicionais
